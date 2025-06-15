@@ -56,6 +56,6 @@ exports.renderEditPost=(req,res)=>{
 }
 
 exports.updatePost=(req,res)=>{
-    const {postId,title,description,photo} =req.body
-  
+   
+    
 }
