@@ -1,17 +1,13 @@
-
-
-const Post = require("../models/posts")
-
+const Post = require("../models/post")
+const mongoDb = require("mongodb")
 exports.createPost=(req,res)=>{
-    const{title,description,photo} = req.body;
-    req.user.createPost({
-        title,
-        description,
-        image_url:photo,
-       
-    }).then((result)=>{
+    const {title,description,photo} = req.body
+    const post = new Post(title,description,photo)
+    post.create().then((result)=>{
+        console.log(result);
         res.redirect("/")
-    }).catch(err=>console.log(err))
+    }).catch(err=>console.log(err)
+    )
 }
 
 exports.renderCreatePost=(req,res)=>{
@@ -19,15 +15,20 @@ exports.renderCreatePost=(req,res)=>{
 }
 
 exports.renderHome=(req,res)=>{
-    Post.findAll({order:[['createdAt','DESC']]}).then((posts)=>{
-        res.render("home",{post:posts})
-    }).catch(err=>console.log(err))
+    Post.getPosts().then((post)=>{
+        res.render("home",{post})
+    }).catch(err=>console.log(err)
+    )
 }
 exports.renderDetail=(req,res)=>{
-    const {postId} = req.params
-    Post.findByPk(Number(postId)).then((post)=>{
-        res.render("details",{post})
-    }).catch(err=>console.log(err))
+  const {postId} =req.params
+  console.log(postId);
+  
+  Post.getPost(new mongoDb.ObjectId(postId))
+  .then((post)=>{
+    res.render("details",{post})
+  }).catch(err=>console.log(err)
+  )
 
     
 }
@@ -44,24 +45,17 @@ exports.deletePost=(req,res)=>{
 }
 
 exports.renderEditPost=(req,res)=>{
-    const {postId} = req.params
-    Post.findByPk(Number(postId)).then((post)=>{
-        res.render("editPost",{post})
-    }).catch(err=>console.log(err)
-    )
+    const {postId} =req.params
+  console.log(postId);
+  
+  Post.getPost(new mongoDb.ObjectId(postId))
+  .then((post)=>{
+    res.render("editPost",{post})
+  }).catch(err=>console.log(err)
+  )
 }
 
 exports.updatePost=(req,res)=>{
-    const{title,description,photo,postId}=req.body;
-    Post.findByPk(Number(postId)).then((post)=>{
-        post.title = title
-        post.description = description
-        post.image_url = photo
-
-        post.save()
-    }).then((_)=>{
-        res.redirect("/")
-    }).catch(err=>console.log(err)
-    )
-    
+    const {postId,title,description,photo} =req.body
+  
 }

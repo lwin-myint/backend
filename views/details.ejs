@@ -9,10 +9,10 @@
 <a href="/" class="backbtn">back</a>
 <hr>
    <div class="btnContainer">
-    <form action="/admin/post/<%= post.id %>" method="post">
+    <form action="/admin/post/<%= post._id %>" method="post">
         <button class="deletebtn">delete</button>
     </form>
-    <a href="/admin/post-edit/<%= post.id %>" class="editbtn">edit</a>
+    <a href="/admin/post-edit/<%= post._id %>" class="editbtn">edit</a>
    </div>
 </body>
 </html>
