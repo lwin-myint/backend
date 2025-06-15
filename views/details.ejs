@@ -1,0 +1,18 @@
+ <% include("./includes/head") %>
+ <link rel="stylesheet" href="/css/details.css">
+ </head>
+<body>
+<h2>details</h2>
+<h1 class="detailsTitle"><%= post.title %></h1>
+<img class="detailsImage" src="<%= post.image_url %>" alt="<%= post.title %>">
+<p class="detailsDescription"><%= post.description %></p>
+<a href="/" class="backbtn">back</a>
+<hr>
+   <div class="btnContainer">
+    <form action="/admin/post/<%= post.id %>" method="post">
+        <button class="deletebtn">delete</button>
+    </form>
+    <a href="/admin/post-edit/<%= post.id %>" class="editbtn">edit</a>
+   </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+        .title{
+            text-align: center;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+.addPostLink{
+    background: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    margin-right: 0;
+    color: white;
+}
+.postsbox{
+    border:1px solid black;
+    padding: 5px 10px;
+    margin-block:5px ;
+}
+.postTitle{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+.postDescription{
+    font-size: 1rem;
+    opacity: .8;
+}
+.homePage{
+    width: 80%;
+    margin: 0 auto;
+}

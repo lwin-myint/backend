@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/addpost.css">
+</head>
+<body>
+    <h1>write your idea</h1>
+    <form action="/admin" method="post" class="addForm">
+       <div class="inputContainer">
+        <label for="title">title</label>
+        <input id="title" type="text" name="title" required>
+       </div>
+          <div class="inputContainer">
+        <label for="description">description</label>
+        <input id="description" type="text" name="description" required>
+       </div>
+        <button class="addbtn">add Post</button>
+    </form>
+    <a href="/" class="backhome">back</a>
+</body>
+</html>

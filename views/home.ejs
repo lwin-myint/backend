@@ -1,0 +1,25 @@
+   <% include("./includes/head") %>
+   
+   <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <div class="homePage">
+        <h1 class="title">i am home page</h1>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ratione aspernatur distinctio sequi beatae esse vero ut dolore minus alias cupiditate doloribus deserunt, dolores, officia, atque odio hic doloremque nostrum.</p>
+    <a href="/admin/createPost" class="addPostLink">add post</a>
+    <hr>
+    <h3 class="title">posts</h3>
+    <% if(post.length===0) { %>
+        <h4>no post yet</h4>
+    <% } %>
+    <% for(let p of post) { %>
+        <div class="postsbox">
+        <p class="postTitle"><%= p.title %></p>
+        <a href="/post/<%= p.id %>">seemore...</a>
+    </div>
+    <% } %>
+    </div>
+    
+</body>
+</html>

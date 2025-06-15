@@ -1,0 +1,41 @@
+.detailsTitle{
+    text-decoration: underline;
+    opacity: .9;
+}
+.detailsImage{
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit:cover ;
+}
+.detailsDescription{
+    font-size: 1.2rem;
+    opacity: .8;
+}
+.backbtn{
+    color: blue;
+}
+.deletebtn{
+     background: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    margin-right: 0;
+    color: white;
+    width: 200px;
+}
+.editbtn{
+    display: block;
+    background: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    margin-right: 0;
+    color: white;
+    width: 180px;
+    text-align: center;
+}
+
+.btnContainer{
+}

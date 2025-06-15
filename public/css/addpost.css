@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+    font-family: "monospace";
+}
+.addForm{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin:0 auto;
+
+}
+.inputContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.inputContainer>input,.inputContainer>textarea{
+    width: 60%;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+.addbtn{
+    width: 100%;
+    font-size: .8rem;
+    padding: 5px 10px;
+    background: black;
+    color: white;
+}
+.inputContainer>label{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.backhome{
+      background: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    float: right;
+    color: white;
+}
