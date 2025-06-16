@@ -4,7 +4,8 @@ exports.createPost=(req,res)=>{
     Post.create({
         title,
         description,
-        image_url:photo
+        image_url:photo,
+        userId:req.user
     }).then((post)=>{
        res.redirect("/")
     }).catch(err=>console.log(err)
@@ -15,8 +16,10 @@ exports.renderCreatePost=(req,res)=>{
     res.render("createPost")
 }
 
+//populate is use when relation refelecting 
 exports.renderHome=(req,res)=>{
-   Post.find().sort({title:1}).then((post)=>{
+   Post.find().select("title")
+   .populate('userId',"username").sort({title:1}).then((post)=>{
     res.render("home",{post})
    }).catch(err=>console.log(err)
    )
