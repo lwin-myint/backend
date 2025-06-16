@@ -1,4 +1,5 @@
-
+const expressSession = require("express-session")
+const mongoStore = require("connect-mongodb-session")(expressSession)
 const express = require("express")
 const path = require("path")
 const app = express()
@@ -11,6 +12,12 @@ const dotenv =require("dotenv").config()
 const authRouter = require("./routes/auth")
 app.set("view engine","ejs")
 app.set("views","views")
+
+const store = new mongoStore({
+    uri:process.env.MONGODB_URI,
+    collection:"sessions"
+})
+
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.static(path.join(__dirname,"public")))
 
@@ -24,6 +31,13 @@ app.use((req,res,next)=>{
     }).catch(err=>console.log(err))
 })
 
+app.use(expressSession({
+    secret:process.env.SESSION_KEY,
+    resave:false,
+    saveUninitialized:false,
+    store
+    
+}))
 
 app.use("/admin",adminRouter);
 app.use(postRouter);
@@ -41,6 +55,5 @@ mongoose.connect(process.env.MONGODB_URL).then((result)=>{
         return user
     })
 }).then((user)=>{
-    console.log(user);
-    
+    console.log(user); 
 }).catch(err=>console.log(err))

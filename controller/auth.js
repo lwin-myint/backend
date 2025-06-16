@@ -3,6 +3,11 @@ exports.renderLogin=(req,res)=>{
 }
 
 exports.postLogin =(req,res)=>{
-    res.setHeader('Set-Cookie','isLogIn=true')
+    req.session.isLogin = true;
+    res.redirect("/")
+}
+
+exports.logout=(req,res)=>{
+    req.session.destroy()
     res.redirect("/")
 }

@@ -8,8 +8,14 @@
         <h1 class="title">i am home page</h1>
     <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ratione aspernatur distinctio sequi beatae esse vero ut dolore minus alias cupiditate doloribus deserunt, dolores, officia, atque odio hic doloremque nostrum.</p>
     <div>
-        <% if(isLogin) { %> <a href="/admin/createPost" class="addPostLink">add post</a> <% } %>
-        <a href="/login" class="addPostLink">create new account</a>
+       <% if(isLogin) { -%>
+  <a href="/admin/createPost" class="addPostLink">add post</a>
+  <form action="/logout" method="post">
+    <button class="logout">logout</button>
+  </form>
+<% } else { -%>
+  <a href="/login" class="addPostLink">create new account</a>
+<% } -%>
     </div>
     <hr>
     <h3 class="title">posts</h3>

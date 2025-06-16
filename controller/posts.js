@@ -18,8 +18,7 @@ exports.renderCreatePost=(req,res)=>{
 
 //populate is use when relation refelecting
 exports.renderHome=(req,res)=>{
-   const cookie = req.get("Cookie")
-   const isLogin =cookie && cookie.split("=")[1].trim()==="true" || false
+   const isLogin = req.session.isLogin &&  true || false
    Post.find().select("title")
    .populate('userId',"username").sort({title:1}).then((post)=>{
     res.render("home",{post,isLogin})

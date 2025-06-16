@@ -30,3 +30,13 @@
     width: 80%;
     margin: 0 auto;
 }
+.logout{
+      background: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    margin-right: 0;
+    color: white;
+    width: 200px;
+}
